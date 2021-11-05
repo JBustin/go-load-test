@@ -16,6 +16,7 @@ var DefaultConfig Config = Config{
 	Scrap:       false,
 	Urls:        []string{},
 	Headers:     make(map[string]string),
+	LogLevel:    "error",
 }
 
 type Config struct {
@@ -28,6 +29,7 @@ type Config struct {
 	Scrap       bool
 	Urls        []string
 	Headers     map[string]string
+	LogLevel    string
 }
 
 func (c Config) String() string {
@@ -41,6 +43,7 @@ func (c Config) String() string {
 	Scrap: %v
 	Urls: %v
 	Headers: %v
+	LogLevel: %v
 	`, c.IsBrowser,
 		c.IsSerie,
 		c.Hits,
@@ -49,7 +52,8 @@ func (c Config) String() string {
 		c.TimeoutMs,
 		c.Scrap,
 		c.Urls,
-		c.Headers)
+		c.Headers,
+		c.LogLevel)
 }
 
 func New(jsonFilePath string) (Config, error) {

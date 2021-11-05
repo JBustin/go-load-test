@@ -8,7 +8,7 @@
   "urls": [
     "https://www.google.com"
   ],
-  "debug": false,
+  "logLevel": "info",
   "timeoutMs": 60000,
   "headers": {}
 }

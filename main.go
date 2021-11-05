@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 
 	"github.com/go-load-test/config"
 	"github.com/go-load-test/scrapper"
@@ -42,7 +41,6 @@ func main() {
 
 func handlerErr(err error) {
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		panic(err)
 	}
 }

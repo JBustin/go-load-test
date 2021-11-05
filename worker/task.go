@@ -54,7 +54,7 @@ func (t task) RequestStr() string {
 }
 
 func (t task) ResponseStr() string {
-	return fmt.Sprintf("[%v] <-- %v\t%v\n", t.id, t.duration, t.url)
+	return fmt.Sprintf("[%v] <-- Duration=%v\t%v\n", t.id, t.duration, t.url)
 }
 
 func (t task) ErrorStr(err error) string {

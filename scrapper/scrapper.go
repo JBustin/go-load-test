@@ -14,11 +14,6 @@ import (
 	"golang.org/x/net/html"
 )
 
-// type ScrapperInterface interface {
-// 	GetLinks() ([]string, error)
-// 	getLinkByUrl(pageUrl string) ([]string, error)
-// }
-
 type scrapper struct {
 	client  network.HTTPClient
 	urls    []string

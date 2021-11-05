@@ -8,11 +8,13 @@ import (
 	"time"
 
 	"github.com/go-load-test/config"
+	"github.com/go-load-test/utils"
 )
 
 type worker struct {
 	config config.Config
 	tasks  []Tasker
+	logger utils.Logger
 }
 
 func New(urls []string, config config.Config) worker {
@@ -25,6 +27,7 @@ func New(urls []string, config config.Config) worker {
 	return worker{
 		config: config,
 		tasks:  tasks,
+		logger: utils.NewLog(config.LogLevel),
 	}
 }
 
@@ -56,22 +59,22 @@ func (w *worker) Process() error {
 func (w *worker) ProcessByGroup(tasks []Tasker, startIndex int) {
 	var wg sync.WaitGroup
 
-	fmt.Printf("\n%v\tRange [%v - %v]\n\n", time.Now().Local(), startIndex, startIndex+w.config.Concurrency)
+	w.logger.Debug(fmt.Sprintf("Range [%v - %v]\n\n", startIndex, startIndex+w.config.Concurrency))
 
 	for i, task := range tasks {
 		wg.Add(1)
 		go func(i int, task Tasker) {
 			defer wg.Done()
 
-			fmt.Println(task.RequestStr())
+			w.logger.Info(task.RequestStr())
 
 			err := task.Request()
 			if err != nil {
 				task.SetHasFailed(true)
-				fmt.Println(task.ErrorStr(err))
+				w.logger.Error(task.ErrorStr(err))
 			}
 
-			fmt.Println(task.ResponseStr())
+			w.logger.Info(task.ResponseStr())
 		}(i, task)
 	}
 	wg.Wait()

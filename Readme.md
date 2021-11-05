@@ -31,7 +31,7 @@ Make your own json test file.
 - `hits` int (default: 100)
 - `waitMs` int (default 1000)
 - `concurrency` int (default 50)
-- `debug` boolean (default false)
+- `logLevel` string (default "error", other values "info", "debug")
 - `timeoutMs` int (default 20000)
 - `scrap` boolean (default false)
 - `urls` array (no default value)
