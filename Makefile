@@ -11,4 +11,14 @@ install: ## Build binary
 test: ## Start unit test
 	go test -cover ./...
 
+install-hook-macos: ## Install precommit git hook (macos)
+	@echo $$"#! /bin/bash\nmake test" > .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-commit
+
+install-hook: ## Install precommit git hook (linux, win)
+	@echo -e "#! /bin/bash\nmake test" > .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-commit
+
+uninstall-hook: ## Uninstall precommit git hook
+	@rm -f .git/hooks/pre-commit
 	
