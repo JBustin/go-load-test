@@ -8,11 +8,15 @@ import (
 
 type Task struct {
 	mock.Mock
-	StatusCode      int
+	statusCode      int
 	connectDuration time.Duration
 	reqDuration     time.Duration
 	duration        time.Duration
 	hasFailed       bool
+}
+
+func NewTask(statusCode int) Task {
+	return Task{statusCode: statusCode}
 }
 
 func (t Task) String() string {
@@ -35,11 +39,15 @@ func (t Task) ErrorStr(err error) string {
 	return args.String(0)
 }
 
-func (t Task) GetStatusCode() int {
-	return t.StatusCode
+func (t *Task) SetStatusCode(statusCode int) {
+	t.statusCode = statusCode
 }
 
-func (t Task) GetDuration(name string) time.Duration {
+func (t Task) StatusCode() int {
+	return t.statusCode
+}
+
+func (t Task) Duration(name string) time.Duration {
 	switch name {
 	case "connect":
 		return t.connectDuration

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 
 	"github.com/go-load-test/config"
 	"github.com/go-load-test/scrapper"
@@ -41,6 +42,6 @@ func main() {
 
 func handlerErr(err error) {
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 }

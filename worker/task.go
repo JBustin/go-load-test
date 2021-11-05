@@ -13,8 +13,8 @@ type Tasker interface {
 	ResponseStr() string
 	ErrorStr(error) string
 	Request() error
-	GetStatusCode() int
-	GetDuration(string) time.Duration
+	StatusCode() int
+	Duration(string) time.Duration
 	SetHasFailed(bool)
 	HasFailed() bool
 }
@@ -61,11 +61,11 @@ func (t task) ErrorStr(err error) string {
 	return fmt.Sprintf("[%v] ! %v  %v", t.id, t.url, err)
 }
 
-func (t task) GetStatusCode() int {
+func (t task) StatusCode() int {
 	return t.statusCode
 }
 
-func (t task) GetDuration(name string) time.Duration {
+func (t task) Duration(name string) time.Duration {
 	switch name {
 	case "connect":
 		return t.connectDuration

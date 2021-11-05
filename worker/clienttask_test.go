@@ -49,9 +49,9 @@ func Test_Clienttask(t *testing.T) {
 			reqDuration     time.Duration
 			duration        time.Duration
 		}{
-			connectDuration: task.GetDuration("connect"),
-			reqDuration:     task.GetDuration("request"),
-			duration:        task.GetDuration(""),
+			connectDuration: task.Duration("connect"),
+			reqDuration:     task.Duration("request"),
+			duration:        task.Duration(""),
 		},
 		"Request should populate iteration metrics",
 	)

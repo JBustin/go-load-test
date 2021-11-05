@@ -10,8 +10,8 @@ import (
 )
 
 func Test_WorkerProcess(t *testing.T) {
-	task0 := mocks.Task{StatusCode: 200}
-	task1 := mocks.Task{StatusCode: 404}
+	task0 := mocks.NewTask(200)
+	task1 := mocks.NewTask(404)
 	tasks := []Tasker{&task0, &task1}
 
 	w := worker{
@@ -57,8 +57,8 @@ func Test_WorkerProcess(t *testing.T) {
 	)
 }
 func Test_WorkerProcessWithError(t *testing.T) {
-	task0 := mocks.Task{StatusCode: 200}
-	task1 := mocks.Task{StatusCode: 404}
+	task0 := mocks.NewTask(200)
+	task1 := mocks.NewTask(404)
 	tasks := []Tasker{&task0, &task1}
 	customConfig := config.DefaultConfig
 	customConfig.IsSerie = true

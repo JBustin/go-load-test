@@ -92,7 +92,7 @@ func (w *worker) Report() string {
 	min := int(math.Inf(1))
 
 	for _, t := range w.tasks {
-		statusCode := t.GetStatusCode()
+		statusCode := t.StatusCode()
 		_, exists := codes[statusCode]
 		if exists {
 			codes[statusCode] += 1
@@ -104,14 +104,14 @@ func (w *worker) Report() string {
 		if t.HasFailed() {
 			failures += 1
 		} else {
-			connectDuration += int(t.GetDuration("connect").Milliseconds())
-			reqDuration += int(t.GetDuration("request").Milliseconds())
-			duration += int(t.GetDuration("").Milliseconds())
-			if min > int(t.GetDuration("").Milliseconds()) {
-				min = int(t.GetDuration("").Milliseconds())
+			connectDuration += int(t.Duration("connect").Milliseconds())
+			reqDuration += int(t.Duration("request").Milliseconds())
+			duration += int(t.Duration("").Milliseconds())
+			if min > int(t.Duration("").Milliseconds()) {
+				min = int(t.Duration("").Milliseconds())
 			}
-			if max < int(t.GetDuration("").Milliseconds()) {
-				max = int(t.GetDuration("").Milliseconds())
+			if max < int(t.Duration("").Milliseconds()) {
+				max = int(t.Duration("").Milliseconds())
 			}
 		}
 	}
