@@ -2,6 +2,8 @@
 
 Load Test CLI - Curl or Browser like
 
+<img width="795" alt="Capture d’écran 2021-11-05 à 14 53 02" src="https://user-images.githubusercontent.com/2632709/140521293-228157a3-03ee-406b-a532-6dca71fcb185.png">
+
 ## Install
 
 Install [Golang](https://golang.org/doc/install).
