@@ -1,0 +1,20 @@
+{
+  "scrap": true,
+  "series": false,
+  "hits": 100,
+  "wait": 1000,
+  "concurrency": 10,
+  "urls": [
+    "https://www-i2f.louisvuitton.com/eng-us/homepage",
+    "https://www-i2f.louisvuitton.com/zhs-cn/homepage",
+    "https://www-i2f.louisvuitton.com/tha-th/homepage",
+    "https://www-i2f.louisvuitton.com/deu-de/homepage",
+    "https://www-i2f.louisvuitton.com/fra-fr/homepage"
+  ],
+  "debug": true,
+  "timeout": 60000,
+  "headers": {
+    "X-Forwarded-For": "94.124.131.151",
+    "User-Agent": "LVCatalog / artillery"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "isBrowser": false,
+  "isSerie": false,
+  "scrap": true,
+  "hits": 10,
+  "waitMs": 1000,
+  "concurrency": 5,
+  "urls": [
+    "https://www.google.com"
+  ],
+  "debug": false,
+  "timeoutMs": 60000,
+  "headers": {}
+}

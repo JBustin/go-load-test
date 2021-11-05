@@ -1,0 +1,20 @@
+{
+  "scrap": true,
+  "series": false,
+  "hits": 100,
+  "wait": 1000,
+  "concurrency": 10,
+  "urls": [
+    "https://local.louisvuitton.com/eng-us/homepage",
+    "https://local.louisvuitton.com/zhs-cn/homepage",
+    "https://local.louisvuitton.com/tha-th/homepage",
+    "https://local.louisvuitton.com/deu-de/homepage",
+    "https://local.louisvuitton.com/fra-fr/homepage"
+  ],
+  "debug": true,
+  "timeout": 60000,
+  "headers": {
+    "X-Forwarded-For": "94.124.131.151",
+    "User-Agent": "LVCatalog / artillery"
+  }
+}
