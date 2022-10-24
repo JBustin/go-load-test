@@ -4,11 +4,22 @@ Load Test CLI - Curl or Browser like
 
 <img width="795" alt="Capture d’écran 2021-11-05 à 14 53 02" src="https://user-images.githubusercontent.com/2632709/140521293-228157a3-03ee-406b-a532-6dca71fcb185.png">
 
-## Find the binaries for your OS
+# Install
 
-In `build/` directory, download the binary you need for your OS.
+### Find the binaries for your OS
 
-## Or install with Golang
+In [build/](https://github.com/JBustin/go-load-test/tree/main/build) directory, download the binary you need for your OS.
+
+```sh
+# example freebsd arm
+curl -k https://github.com/JBustin/go-load-test/raw/main/build/freebsd/gload-0.0.1-freebsd-arm -o ./gload && chmod +x ./gload
+
+./gload -f test.json
+# move executable "gload" to a bin directory
+# or copy the path of the binary inside $PATH
+```
+
+### Or install and build with Golang
 
 Required: [Golang](https://golang.org/doc/install).
 
@@ -18,19 +29,15 @@ Then,
 git clone https://github.com/JBustin/go-load-test.git
 cd go-load-test
 make install
+
+./gload -f test.json
 # move executable "gload" to a bin directory
 # or copy the path of the binary inside $PATH
 ```
 
-## Usage
+# Usage
 
-```
-./gload -f test.json
-```
-
-Make your own json test file.
-
-## Json
+Make your own [config json file](https://github.com/JBustin/go-load-test/blob/main/test.json).
 
 - `isBrowser` boolean (default: false)
 - `isSerie` boolean (default: false)

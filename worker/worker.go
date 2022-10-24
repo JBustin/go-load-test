@@ -149,7 +149,7 @@ func ranges(mySlice []Tasker, size int) [][]Tasker {
 
 	j := -1
 
-	for i := 0; i < len(mySlice); i++ {
+	for i := 0; i < len(mySlice)-1; i++ {
 		if i%size == 0 {
 			j++
 			result[j] = []Tasker{}

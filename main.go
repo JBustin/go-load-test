@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/go-load-test/config"
 	"github.com/go-load-test/scrapper"
@@ -30,6 +31,11 @@ func main() {
 		handlerErr(err)
 	} else {
 		urls = conf.Urls
+	}
+
+	if len(urls) == 0 {
+		fmt.Println("No found url, exit.")
+		os.Exit(0)
 	}
 
 	urls = utils.Fill(urls, conf.Hits)

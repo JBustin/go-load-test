@@ -1,7 +1,11 @@
 package utils
 
 func Fill(urls []string, hits int) []string {
-	if len(urls) == 0 || len(urls) >= hits {
+	if len(urls) == 0 {
+		return urls
+	}
+
+	if len(urls) == 0 && len(urls) >= hits {
 		return urls[0:hits]
 	}
 
