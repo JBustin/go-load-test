@@ -4,9 +4,13 @@ Load Test CLI - Curl or Browser like
 
 <img width="795" alt="Capture d’écran 2021-11-05 à 14 53 02" src="https://user-images.githubusercontent.com/2632709/140521293-228157a3-03ee-406b-a532-6dca71fcb185.png">
 
-## Install
+## Find the binaries for your OS
 
-Install [Golang](https://golang.org/doc/install).
+In `build/` directory, download the binary you need for your OS.
+
+## Or install with Golang
+
+Required: [Golang](https://golang.org/doc/install).
 
 Then,
 
@@ -14,14 +18,14 @@ Then,
 git clone https://github.com/JBustin/go-load-test.git
 cd go-load-test
 make install
-# move executable "go-load-test" to a bin directory
+# move executable "gload" to a bin directory
 # or copy the path of the binary inside $PATH
 ```
 
 ## Usage
 
 ```
-./go-load-test -f test.json
+./gload -f test.json
 ```
 
 Make your own json test file.
