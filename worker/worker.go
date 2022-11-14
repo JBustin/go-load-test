@@ -59,7 +59,7 @@ func (w *worker) Process() error {
 func (w *worker) ProcessByGroup(tasks []Tasker, startIndex int) {
 	var wg sync.WaitGroup
 
-	w.logger.Debug(fmt.Sprintf("Range [%v - %v]\n\n", startIndex, startIndex+w.config.Concurrency))
+	w.logger.Debug(fmt.Sprintf("Range [%v - %v] (len: %v)\n", startIndex, startIndex+w.config.Concurrency, len(tasks)))
 
 	for i, task := range tasks {
 		wg.Add(1)
@@ -149,7 +149,7 @@ func ranges(mySlice []Tasker, size int) [][]Tasker {
 
 	j := -1
 
-	for i := 0; i < len(mySlice)-1; i++ {
+	for i := 0; i < len(mySlice); i++ {
 		if i%size == 0 {
 			j++
 			result[j] = []Tasker{}
