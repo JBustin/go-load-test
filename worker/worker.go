@@ -43,7 +43,7 @@ func (w *worker) Process() error {
 
 		for i, group := range groups {
 			wg.Add(1)
-			time.Sleep(time.Duration(i*w.config.WaitMs) * time.Millisecond)
+			time.Sleep(time.Duration(w.config.WaitMs) * time.Millisecond)
 			go func(group []Tasker, i int) {
 				w.ProcessByGroup(group, i*w.config.Concurrency)
 				wg.Done()
