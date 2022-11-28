@@ -25,7 +25,7 @@ func Test_TaskMethods(t *testing.T) {
 	task := newTask(conf, 0, "https://mysite.com", false)
 
 	assert.Equal(t, "[0] --> Request https://mysite.com", task.RequestStr(), "should format request message")
-	assert.Equal(t, "[0] <-- Duration=0s\thttps://mysite.com\n", task.ResponseStr(), "should format response message")
+	assert.Equal(t, "[0] <-- Duration=0s [0]\thttps://mysite.com\n", task.ResponseStr(), "should format response message")
 	assert.Equal(t, "[0] ! https://mysite.com  boum", task.ErrorStr(errors.New("boum")), "should format error message")
 	assert.Equal(t, 0, task.StatusCode(), "should return statusCode")
 	assert.Equal(t, 0*time.Millisecond, task.Duration(""), "should return total duration")

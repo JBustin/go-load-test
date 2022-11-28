@@ -145,7 +145,12 @@ func ranges(mySlice []Tasker, size int) [][]Tasker {
 		return [][]Tasker{mySlice}
 	}
 
-	result := make([][]Tasker, len(mySlice)/size)
+	var r = len(mySlice) / size
+	var r1 = r * size
+	if r1 < len(mySlice) {
+		r += 1
+	}
+	result := make([][]Tasker, r)
 
 	j := -1
 
