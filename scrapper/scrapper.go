@@ -70,7 +70,7 @@ func (s scrapper) getLinkByUrl(pageUrl string) ([]string, error) {
 		return nil, err
 	}
 
-	return extractLinks(string(bodyBuf), fmt.Sprintf("%s://%s", myUrl.Scheme, myUrl.Hostname()))
+	return extractLinks(string(bodyBuf), fmt.Sprintf("%s://%s", myUrl.Scheme, myUrl.Host))
 }
 
 func extractLinks(content string, hostname string) ([]string, error) {
