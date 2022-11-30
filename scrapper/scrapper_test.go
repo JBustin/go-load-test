@@ -65,14 +65,22 @@ func Test_Scrapper(t *testing.T) {
 		"Get links from urls should not return an error",
 	)
 
-	assert.Equal(
+	assert.Contains(
 		t,
-		[]string{
-			"https://mysite.com/homepage",
-			"https://mysite.com/page1",
-			"https://mysite.com/page2",
-		},
 		links,
+		"https://mysite.com/homepage",
+		"Get links from urls should work as expected",
+	)
+	assert.Contains(
+		t,
+		links,
+		"https://mysite.com/page1",
+		"Get links from urls should work as expected",
+	)
+	assert.Contains(
+		t,
+		links,
+		"https://mysite.com/page2",
 		"Get links from urls should work as expected",
 	)
 }

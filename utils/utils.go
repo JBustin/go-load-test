@@ -1,5 +1,10 @@
 package utils
 
+import (
+	"math/rand"
+	"time"
+)
+
 func Fill(urls []string, hits int) []string {
 	if len(urls) == 0 {
 		return urls
@@ -36,4 +41,10 @@ func Dedupe(mySlice []string) []string {
 	}
 
 	return result
+}
+
+func Shuffle(mySlice []string) []string {
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle(len(mySlice), func(i, j int) { mySlice[i], mySlice[j] = mySlice[j], mySlice[i] })
+	return mySlice
 }

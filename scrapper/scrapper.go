@@ -42,7 +42,7 @@ func (s scrapper) GetLinks() ([]string, error) {
 	}
 
 	wg.Wait()
-	return utils.Dedupe(links), nil
+	return utils.Shuffle(utils.Dedupe(links)), nil
 }
 
 func (s scrapper) getLinkByUrl(pageUrl string) ([]string, error) {
